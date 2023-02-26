@@ -1,0 +1,38 @@
+{
+  "auth": "zef:thundergnat",
+  "authors": [
+    "Stephen Schulze (thundergnat)"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Handy math routines and operators that aren't in CORE Raku.",
+  "license": "Artistic-2.0",
+  "name": "Math::Handy",
+  "perl": "6.*",
+  "provides": {
+    "Math::Handy": "lib/Math/Handy.rakumod"
+  },
+  "resources": [
+  ],
+  "source-type": "git",
+  "source-url": "https://github.com/thundergnat/Math-Handy.git",
+  "tags": [
+    "factorial",
+    "gamma",
+    "Γ",
+    "binomial",
+    "sum",
+    "Σ",
+    "product",
+    "Π",
+    "divmod",
+    "digital-root",
+    "degrees",
+    "gradians"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
