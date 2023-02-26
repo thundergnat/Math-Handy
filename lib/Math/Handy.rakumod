@@ -116,11 +116,11 @@ Math::Handy provides several handy functions and operators.
 
 =head3 Factorial operators
 
-C<factorial (Int)> - the product of the integers from zero to $n. Also
+C<factorial (Int)> - the product of the integers from one to $n. Also
 available as C<postfix:<!> (Int)>.
 
 Factorial is a discrete operation, only valid at integer values. For a continuous
-function, you need C<gamma (Real $n)>.
+function, you want C<gamma (Real $n)>.
 
 C<gamma (Real)> is a continuous factorial function. C<Γ($n) =~=  ($n - 1)!>.
 Also available as C<Γ (Real $n)> (Greek uppercase gamma). Calculated using
@@ -128,17 +128,17 @@ Lanczos approximation. (Only valid for positive arguments at this point.)
 
 Also related to C<factorial()> is C<binomial()>.
 
-C<binomial(Int $n, Int $p)> very commonly appears in combinatorics. Is equivalently
-expressed as: C< n! / (p! × (n - p)!) >.
+C<binomial(Int $n, Int $p)>, very commonly appears in combinatorics. Is equivalently
+expressed as: C< n! / (p! × (n - p)!)>.
 
 
 =head3 Arithematic operators
 
-Raku has the very convenient C<sum> function. Tradional mathematics spells it
+Raku has the very convenient C<sum> function. Traditional mathematics spells it
 C<Σ>. This module provides a C<Σ (*@list)> operator to remedy that.
 
 
-Another common mathematical operator that Raku neglected is C<product()>. It has
+Another common mathematical operator that Raku left out is C<product()>. Raku has
 the C<[*]> meta reduce operator, but that is difficult to chain with other
 operations. This module provides both a C<product (*@list)> routine, and the more
 traditionally spelled: C<Π (*@list)> (Greek uppercase pi)
@@ -158,7 +158,8 @@ of the digits until only a single digit remains. The C<persistance> is the numbe
 of times the function needs to recurse to reach a single digit.
 
 Provides C<digital-root (Int $n, :$base = 10)>. Calculates and returns the
-additive digital root and the persistance. Also available as the abbreviated
+additive digital root and the persistance, by default in base 10. Pass in a named
+base (2 = 36) if a different base is desired. Also available as the abbreviated
 C<adr (Int $n, :$base = 10)>
 
 Similar to the additive C<digital-root()> is the
@@ -185,6 +186,10 @@ C<postfix:<ᵍ> (Real $gradians)> converts gradian measurments to radians.
 
 Most of these were code snippets I or someone else wrote as helper functions
 for solving RosettaCode tasks.
+
+If there is a routine you think should be added, or if I bungled one of the
+existing, please let me know.
+
 
 Stephen Schulze (aka thundergnat <thundergnat@comcast.net>)
 
