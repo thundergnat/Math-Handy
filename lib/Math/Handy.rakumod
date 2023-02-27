@@ -1,4 +1,4 @@
-unit module Math::Handy;
+unit module Math::Handy:ver<0.0.2>:auth<zef:thundergnat>;;
 
 # Factorial related
 
@@ -40,9 +40,10 @@ our &Π is export = &product;
 
 our &Σ is export = &sum;
 
-sub divmod (Real $n, Real $m) is export { my $div = ($n / $m).Int, $n % $m }
+sub infix:</%> (Real $n, Real $m) is export { my $div = ($n / $m).Int, $n % $m }
 
-sub infix:</%> (Real $n, Real $m) is export { divmod $n, $m }
+sub infix:<divmod> (Int(Real) $n, Int(Real) $m) is export { $n /% $m }
+
 
 
 # Digital roots
@@ -100,7 +101,11 @@ say Σ (^1e2).grep: &is-prime; # 1060
 
 say Π (^1e2).grep: &is-prime; # 2305567963945518424753102147331756070
 
-say 33 /% 5;  # (6 3)
+say 33 divmod 5;   # (6 3)
+
+say 33 divmod 5.1; # (6 3)
+
+say 33 /% 5.1;     # (6 2.5)
 
 say adr 16781; # (5 2)
 
@@ -147,9 +152,12 @@ traditionally spelled: C<Π (*@list)> (Greek uppercase pi)
 
 
 Raku has C<div>, Raku has C<mod>, Raku has C<polymod()>, but sometimes you may
-want a plain old C<divmod()>.
-C<divmod (Real, Real)> returns the whole divisions and the remainder. Also
-available as an binop C<infix:</%> (Real, Real)>: C<Real %/ Real>
+want a plain old C<divmod>.
+
+C<infix:<divmod> (Real, Real)> coerces arguments to Int and returns the whole
+divisions and the remainder.
+
+Also available as C<infix:</%> (Real, Real)>: C<Real %/ Real> which doesn't coerce.
 
 
 

@@ -15,9 +15,13 @@ is-deeply((Π (^1e2).grep: &is-prime), 2305567963945518424753102147331756070, 'P
 
 is-deeply((product (^1e2).grep: &is-prime), 2305567963945518424753102147331756070, 'Product long form');
 
-is-deeply((33 /% 5), (6, 3), 'Divmod binop');
+is-deeply((33 /% 5), (6, 3), 'Divmod Real');
 
-is-deeply(divmod(33, 5), (6, 3), 'Divmod routine');
+is-deeply((33 divmod 5), (6, 3), 'Divmod Int');
+
+is-deeply((33.5 divmod 4.3), (8, 1), 'Divmod Int coerces');
+
+is-deeply((33.5 /% 4.3), (7, 3.4), 'Divmod Real doesn\'t coerce');
 
 is-deeply(digital-root(16781), (5, 2), 'additive digital root long form');
 

@@ -21,7 +21,11 @@ say Σ (^1e2).grep: &is-prime; # 1060
 
 say Π (^1e2).grep: &is-prime; # 2305567963945518424753102147331756070
 
-say 33 /% 5;  # (6 3)
+say 33 divmod 5;   # (6 3)
+
+say 33 divmod 5.1; # (6 3)
+
+say 33 /% 5.1;     # (6 2.5)
 
 say adr 16781; # (5 2)
 
@@ -55,7 +59,11 @@ Raku has the very convenient `sum` function. Traditional mathematics spells it `
 
 Another common mathematical operator that Raku left out is `product()`. Raku has the `[*]` meta reduce operator, but that is difficult to chain with other operations. This module provides both a `product (*@list)` routine, and the more traditionally spelled: `Π (*@list)` (Greek uppercase pi)
 
-Raku has `div`, Raku has `mod`, Raku has `polymod()`, but sometimes you may want a plain old `divmod()`. `divmod (Real, Real)` returns the whole divisions and the remainder. Also available as an binop `infix:</%> (Real, Real)`: `Real %/ Real`
+Raku has `div`, Raku has `mod`, Raku has `polymod()`, but sometimes you may want a plain old `divmod`.
+
+`infix:<divmod> (Real, Real)` coerces arguments to Int and returns the whole divisions and the remainder.
+
+Also available as `infix:</%> (Real, Real)`: `Real %/ Real` which doesn't coerce.
 
 ### Digital roots
 
